@@ -5,38 +5,41 @@
     </mat-card-title>
     <mat-card-content>
       <div class="textfield">
-    <form>
-        <div fxflex fxflex-offset="30px">
+        <p>
+          {{userForm.value | json}}
+        </p>
+    <form novalidate [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div fxflex fxflexOffset="30px">
       <p>
         
       <mat-form-field>
-        <input  matInput placeholder="firstname" required>
+        <input  matInput placeholder="firstname" type="text" formControlName="firstname" required>
       </mat-form-field>
       </p>
       <p>
       <mat-form-field>
-        <input matInput placeholder="lastname" required>
+        <input matInput placeholder="lastname" type="text" formControlName="lastname" required>
       </mat-form-field>
       </p>
       <p>
       <mat-form-field>
-        <input matInput placeholder="email" required>
+        <input matInput placeholder="email" type="email" formControlName="email" required>
       </mat-form-field>
       </p>
       <p>
         
           <mat-form-field>
-            <input  matInput placeholder="phoneNo" required>
+            <input  matInput placeholder="phoneNo" type="text" formControlName="phoneno" required>
           </mat-form-field>
           </p>
      <p> 
       <mat-form-field>
-        <input matInput placeholder="city" required>
+        <input matInput placeholder="city" formControlname="city" type="text" required>
       </mat-form-field>
       </p>
       <p>
-        <mat-select>
-        <mat-option></mat-option>
+        <mat-select formControlName="gendertype" placeholder="gender" >
+        <mat-option *ngFor="let gender of gendertype" [value]="gender">{{gender}}</mat-option>
       </mat-select>
       </p>
       </div>
