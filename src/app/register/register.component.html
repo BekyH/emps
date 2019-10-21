@@ -5,9 +5,7 @@
     </mat-card-title>
     <mat-card-content>
       <div class="textfield">
-        <p>
-          {{userForm.value | json}}
-        </p>
+        
     <form novalidate [formGroup]="userForm" #userform="ngForm" (ngSubmit)="onSubmit()">
         <div fxflex fxflexOffset="30px">
       <p>
