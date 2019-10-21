@@ -8,35 +8,45 @@
         <p>
           {{userForm.value | json}}
         </p>
-    <form novalidate [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <form novalidate [formGroup]="userForm" #userform="ngForm" (ngSubmit)="onSubmit()">
         <div fxflex fxflexOffset="30px">
       <p>
         
       <mat-form-field>
         <input  matInput placeholder="firstname" type="text" formControlName="firstname" required>
+        <mat-error *ngIf="userForm.get('firstname').hasError('required') && userForm.get('firstname').touched">first name is required</mat-error>
       </mat-form-field>
       </p>
       <p>
       <mat-form-field>
         <input matInput placeholder="lastname" type="text" formControlName="lastname" required>
+        
+        <mat-error *ngIf="userForm.get('lastname').hasError('required') && userForm.get('lastname').touched">last name is required</mat-error>
       </mat-form-field>
       </p>
       <p>
       <mat-form-field>
         <input matInput placeholder="email" type="email" formControlName="email" required>
+        
+        <mat-error *ngIf="userForm.get('email').hasError('required') && userForm.get('email').touched">email is required</mat-error>
       </mat-form-field>
       </p>
       <p>
         
           <mat-form-field>
             <input  matInput placeholder="phoneNo" type="text" formControlName="phoneno" required>
+          
+        <mat-error *ngIf="userForm.get('phoneno').hasError('required') && userForm.get('phoneno').touched">phoneNo is required</mat-error>
           </mat-form-field>
           </p>
-     <p> 
-      <mat-form-field>
-        <input matInput placeholder="city" formControlname="city" type="text" required>
-      </mat-form-field>
-      </p>
+          <p>
+        
+            <mat-form-field>
+              <input  matInput placeholder="city" type="text" formControlName="city" required>
+            
+          <mat-error *ngIf="userForm.get('city').hasError('required') && userForm.get('city').touched">city is required</mat-error>
+            </mat-form-field>
+            </p>
       <p>
         <mat-select formControlName="gendertype" placeholder="gender" >
         <mat-option *ngFor="let gender of gendertype" [value]="gender">{{gender}}</mat-option>

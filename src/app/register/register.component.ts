@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder,FormGroup} from '@angular/forms';
+import { Component, OnInit,ViewChild} from '@angular/core';
+import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 import {user,genderType} from '../../../user';
 @Component({
   selector: 'app-register',
@@ -10,6 +10,7 @@ export class RegisterComponent implements OnInit {
   userForm:FormGroup;
   User:user;
   gendertype=genderType;
+  @ViewChild('userform') userFormDirective;
 
   constructor(private fb:FormBuilder) 
   {
@@ -20,6 +21,18 @@ export class RegisterComponent implements OnInit {
   }
   createForm(){
     this.userForm = this.fb.group({
+      firstname:['',Validators.required],
+      lastname:['',Validators.required],
+      email:['',Validators.required],
+      city:['',Validators.required],
+      phoneno:['',Validators.required],
+      gendertype:'male'
+    });
+  }
+  onSubmit(){
+    this.User = this.userForm.value;
+    console.log(this.User);
+    this.userForm.reset({
       firstname:'',
       lastname:'',
       email:'',
@@ -27,11 +40,7 @@ export class RegisterComponent implements OnInit {
       phoneno:'',
       gendertype:'male'
     });
-  }
-  onSubmit(){
-    this.User = this.userForm.value;
-    console.log(user);
-    this.userForm.reset();
+    this.userFormDirective.resetForm();
   }
 
 }
