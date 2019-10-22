@@ -1,18 +1,21 @@
 import { Component, OnInit,ViewChild} from '@angular/core';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
-import {user,genderType} from '../../../user';
+import {user,genderType} from '../user';
+import { RegisterService } from '../service/register.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+ 
   userForm:FormGroup;
   User:user;
   gendertype=genderType;
   @ViewChild('userform') userFormDirective;
 
-  constructor(private fb:FormBuilder) 
+  constructor(private fb:FormBuilder,private  rs:RegisterService) 
   {
     this.createForm();
    }
@@ -32,6 +35,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(){
     this.User = this.userForm.value;
     console.log(this.User);
+    this.rs.registerUser(this.User.firstname,this.User.lastname,this.User.email,this.User.phoneno,this.User.city,this.User.gender);
     this.userForm.reset({
       firstname:'',
       lastname:'',

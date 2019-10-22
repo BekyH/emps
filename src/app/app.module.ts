@@ -21,6 +21,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {RegisterService} from './service/register.service';
+import {HttpClientModule} from '@angular/common/http';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +37,7 @@ import {RegisterService} from './service/register.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
@@ -46,7 +49,8 @@ import {RegisterService} from './service/register.service';
     RouterModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   providers: [
     RegisterService
