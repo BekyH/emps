@@ -9,6 +9,6 @@ export const routes:Routes=[
   {path:'register',component:RegisterComponent},
   {path:'about',component:AboutComponent},
   {path:'contact',component:ContactComponent},
-  {path:'login',component:LoginComponent},
+  
   {path:'',redirectTo:'/home',pathMatch:'full'}
 ]
