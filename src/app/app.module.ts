@@ -23,6 +23,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {RegisterService} from './service/register.service';
 import {HttpClientModule} from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import {MatIconModule} from '@angular/material/icon';
     HttpClientModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatDialogModule,
     MatInputModule,
     MatCardModule,
     BrowserAnimationsModule,
