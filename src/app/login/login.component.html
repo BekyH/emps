@@ -16,9 +16,11 @@
 <p>
   <mat-form-field>
   <input matInput type="password" formControlName="password" placeholder="Password" required>
-  <mat-error *ngIf="userForm.get('password').hasError('required') && userForm.get('password').touched">password is required</mat-error>
+  <mat-error *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">password is required</mat-error>
 </mat-form-field>
+<mat-slide-toggle>Remember password!</mat-slide-toggle>
 </p>
+
 <button mat-button type="submit">Login</button>
 <button mat-button mat-dialog-close>cancel</button>
 </form>
