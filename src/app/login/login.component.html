@@ -1,5 +1,24 @@
+
 <mat-toolbar color="primary">
     Login
   <span class="flex-spacer"></span>
+  <div fxFlex fxFlexOffset="280px">
   <button mat-button mat-dialog-close>&times;</button>
+</div>
 </mat-toolbar>
+<form novalidate [formGroup]="loginForm">
+<p>
+  <mat-form-field>
+    <input matInput type="email" formControlName="email" placeholder="Email" required>
+    <mat-error *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').touched">Email is required</mat-error>
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field>
+  <input matInput type="password" formControlName="password" placeholder="Password" required>
+  <mat-error *ngIf="userForm.get('password').hasError('required') && userForm.get('password').touched">password is required</mat-error>
+</mat-form-field>
+</p>
+<button mat-button type="submit">Login</button>
+<button mat-button mat-dialog-close>cancel</button>
+</form>

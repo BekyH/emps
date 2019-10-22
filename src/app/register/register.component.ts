@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
       email:['',Validators.required],
       city:['',Validators.required],
       phoneno:['',Validators.required],
+      password:['',Validators.required],
       gendertype:'male'
     });
   }

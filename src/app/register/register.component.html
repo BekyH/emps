@@ -30,6 +30,13 @@
       </mat-form-field>
       </p>
       <p>
+      <mat-form-field>
+          <input matInput placeholder="Password" type="password" formControlName="password" required>
+          
+          <mat-error *ngIf="userForm.get('password').hasError('required') && userForm.get('password').touched">password is required</mat-error>
+        </mat-form-field>
+        </p>
+      <p>
         
           <mat-form-field>
             <input  matInput placeholder="phoneNo" type="text" formControlName="phoneno" required>

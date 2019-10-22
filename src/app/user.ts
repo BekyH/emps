@@ -5,5 +5,6 @@ export class user{
     email:string;
     phoneno:string;
     city:string;
+    password:string;
 }
 export const genderType = ['male','female'];
