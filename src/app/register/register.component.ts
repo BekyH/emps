@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild} from '@angular/core';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
-import {user,genderType} from '../user';
+import {user} from '../user';
 import { RegisterService } from '../service/register.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
  
   userForm:FormGroup;
   User:user;
-  gendertype=genderType;
+  
   @ViewChild('userform') userFormDirective;
 
   constructor(private fb:FormBuilder,private  rs:RegisterService) 
@@ -30,20 +30,22 @@ export class RegisterComponent implements OnInit {
       city:['',Validators.required],
       phoneno:['',Validators.required],
       password:['',Validators.required],
-      gendertype:'male'
+      gender:['',Validators.required],
     });
   }
   onSubmit(){
     this.User = this.userForm.value;
     console.log(this.User);
-    this.rs.registerUser(this.User.firstname,this.User.lastname,this.User.email,this.User.phoneno,this.User.city,this.User.gender);
+    this.rs.registerUser(this.User.firstname,this.User.lastname,this.User.email,this.User.phoneno,this.User.city,this.User.password,this.User.gender);
     this.userForm.reset({
       firstname:'',
       lastname:'',
       email:'',
       city:'',
       phoneno:'',
-      gendertype:'male'
+      password:'',
+      gender:'',
+
     });
     this.userFormDirective.resetForm();
   }

@@ -9,14 +9,15 @@ export class RegisterService {
   constructor(private http:HttpClient) {
 
    }
-   registerUser(firstname,lastname,email,phoneno,city,gender){
+   registerUser(firstname,lastname,email,phoneno,city,password,gender){
      const user={
        firstname:firstname,
        lastname:lastname,
        email:email,
        phoneno:phoneno,
        city:city,
-       gender:gender
+       gender:gender,
+       password:password
      }
      
       console.log(user);

@@ -7,4 +7,3 @@ export class user{
     city:string;
     password:string;
 }
-export const genderType = ['male','female'];

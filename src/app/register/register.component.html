@@ -52,11 +52,13 @@
           <mat-error *ngIf="userForm.get('city').hasError('required') && userForm.get('city').touched">city is required</mat-error>
             </mat-form-field>
             </p>
-      <p>
-        <mat-select formControlName="gendertype" placeholder="gender" >
-        <mat-option *ngFor="let gender of gendertype" [value]="gender">{{gender}}</mat-option>
-      </mat-select>
-      </p>
+            <p>
+            <mat-form-field>
+              <input  matInput placeholder="gender" type="text" formControlName="gender" required>
+            
+          <mat-error *ngIf="userForm.get('gender').hasError('gender') && userForm.get('gender').touched">gender is required</mat-error>
+            </mat-form-field>
+            </p>
       </div>
       <button mat-button>Register</button>
     </form>
