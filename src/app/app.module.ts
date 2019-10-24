@@ -21,6 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {RegisterService} from './service/register.service';
+import {HomeService} from './service/home.service';
 import {HttpClientModule} from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -59,7 +60,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     
   ],
   providers: [
-    RegisterService
+    RegisterService,
+    HomeService
   ],
   entryComponents:[
     LoginComponent
