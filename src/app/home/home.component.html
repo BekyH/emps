@@ -1,32 +1,46 @@
-<div fxflex class="container" fxLayout="column" fxLayoutGap="10px">
-<mat-card>
+<div fxflex  class="container" fxLayout="column" fxLayoutGap="10px" >
+<mat-card style="width: 600px;">
   <mat-card-title>
-    lorem ipsum
+    Register Company
   </mat-card-title>
   <mat-card-content>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
-     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </mat-card-content>
-</mat-card>
-<mat-card>
-  <mat-card-title>
-    lorem ipsum
-  </mat-card-title>
-  <mat-card-content>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
-     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </mat-card-content>
-</mat-card>
-<mat-card>
-  <mat-card-title>
-    lorem ipsum
-  </mat-card-title>
-  <mat-card-content>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
-     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    
+    <form novalidate [formGroup]="companyForm">
+      <P>
+        <mat-form-field style="width: 300px;">
+          <input matInput placeholder="company Name" formControlName="name" type="text" required>
+          <mat-error *ngIf="companyForm.get('name').hasError('required') && companyForm.get('name').touched">Name is required</mat-error>
+        </mat-form-field>
+      </P>
+      <p>
+        <mat-form-field style="width: 300px;">
+        <input matInput placeholder="phoneNo" formControlName="phoneno" type="text" required>
+        <mat-error *ngIf="companyForm.get('phoneno').hasError('required') && companyForm.get('phoneno').touched">Phoneno is required</mat-error>
+      </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 300px;">
+          <input matInput placeholder="email" formControlName="email" type="email" required>
+          <mat-error *ngIf="companyForm.get('email').hasError('required') && companyForm.get('email').touched">Email is required</mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 300px;">
+          <input matInput placeholder="city" formControlName="city" type="text" required>
+          <mat-error *ngIf="companyForm.get('city').hasError('required') && companyForm.get('city').touched">City is required</mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+          <mat-form-field style="width: 300px;">
+            <input matInput placeholder="category" formControlName="category" type="text" required>
+            <mat-error *ngIf="companyForm.get('category').hasError('required') && companyForm.get('category').touched">category is required</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <button mat-button type="submit" color="primary">Register</button>
+        </p>
+    </form>
+  
   </mat-card-content>
 </mat-card>
 </div>
