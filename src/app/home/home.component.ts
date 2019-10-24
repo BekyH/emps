@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 import {Company} from '../company';
+import {HomeService} from '../service/home.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('companyform') companyFormDirective;
   companyForm:FormGroup;
   company:Company;
-  constructor(private fb:FormBuilder) {
+  constructor(private fb:FormBuilder,private hs:HomeService) {
     this.createForm();
    }
    
@@ -23,6 +25,19 @@ export class HomeComponent implements OnInit {
       city:['',Validators.required],
       category:['',Validators.required]
     })
+  }
+  onSubmit(){
+    this.company = this.companyForm.value;
+    console.log(this.company);
+    this.hs.registerCompany(this.company.name,this.company.phoneno,this.company.email,this.company.city,this.company.category);
+  this.companyForm.reset({
+    name:'',
+    phoneno:'',
+    email:'',
+    city:'',
+    category:''
+  });
+  this.companyFormDirective.resetForm();
   }
 
 }

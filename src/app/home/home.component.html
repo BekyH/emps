@@ -5,7 +5,7 @@
   </mat-card-title>
   <mat-card-content>
     
-    <form novalidate [formGroup]="companyForm">
+    <form novalidate [formGroup]="companyForm" #companyform="ngForm" (ngSubmit)="onSubmit()">
       <P>
         <mat-form-field style="width: 300px;">
           <input matInput placeholder="company Name" formControlName="name" type="text" required>

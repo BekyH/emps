@@ -3,5 +3,5 @@ export class Company{
     phoneno:String;
     email:String;
     city:String;
-    cateogry:string;
+    category:string;
 }
