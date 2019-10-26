@@ -1,7 +1,7 @@
-export class Company{
+export class Employee{
     name:String;
     phoneno:String;
     email:String;
     city:String;
-    category:string;
+    address:string;
 } 

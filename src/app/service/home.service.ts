@@ -5,22 +5,22 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HomeService {
-uri = 'http://localhost:3000/companies';
+uri = 'http://localhost:3000/employees';
   constructor(private http:HttpClient) { }
-  registerCompany(name,phoneno,email,city,category){
-      const company = {
+  registerCompany(name,phoneno,email,city,address){
+      const employee = {
         name:name,
         phoneno:phoneno,
         email:email,
         city:city,
-        category:category
+        address:address
 
       }
-      console.log(company);
-      this.http.post(this.uri,company)
+      console.log(employee);
+      this.http.post(this.uri,employee)
       .subscribe(res=>console.log('done'))
   }
-  getAllCompanys():Observable<any>{
+  getAllEmployees():Observable<any>{
     return this.http.get(this.uri);
   }
 }

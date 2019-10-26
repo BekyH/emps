@@ -1,39 +1,39 @@
 <div fxflex  class="container" fxLayout="row" fxLayoutGap="10px" >
 <mat-card style="width: 500px;">
   <mat-card-title>
-    Register Company
+    Register Employee
   </mat-card-title>
   <mat-card-content>
     
-    <form novalidate [formGroup]="companyForm" #companyform="ngForm" (ngSubmit)="onSubmit()">
+    <form novalidate [formGroup]="employeeForm" #employeeform="ngForm" (ngSubmit)="onSubmit()">
       <P>
         <mat-form-field style="width: 300px;">
-          <input matInput placeholder="company Name" formControlName="name" type="text" required>
-          <mat-error *ngIf="companyForm.get('name').hasError('required') && companyForm.get('name').touched">Name is required</mat-error>
+          <input matInput placeholder="Employee Name" formControlName="name" type="text" required>
+          <mat-error *ngIf="employeeForm.get('name').hasError('required') && employeeForm.get('name').touched">Name is required</mat-error>
         </mat-form-field>
       </P>
       <p>
         <mat-form-field style="width: 300px;">
         <input matInput placeholder="phoneNo" formControlName="phoneno" type="text" required>
-        <mat-error *ngIf="companyForm.get('phoneno').hasError('required') && companyForm.get('phoneno').touched">Phoneno is required</mat-error>
+        <mat-error *ngIf="employeeForm.get('phoneno').hasError('required') && employeeForm.get('phoneno').touched">Phoneno is required</mat-error>
       </mat-form-field>
       </p>
       <p>
         <mat-form-field style="width: 300px;">
           <input matInput placeholder="email" formControlName="email" type="email" required>
-          <mat-error *ngIf="companyForm.get('email').hasError('required') && companyForm.get('email').touched">Email is required</mat-error>
+          <mat-error *ngIf="employeeForm.get('email').hasError('required') && employeeForm.get('email').touched">Email is required</mat-error>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field style="width: 300px;">
           <input matInput placeholder="city" formControlName="city" type="text" required>
-          <mat-error *ngIf="companyForm.get('city').hasError('required') && companyForm.get('city').touched">City is required</mat-error>
+          <mat-error *ngIf="employeeForm.get('city').hasError('required') && employeeForm.get('city').touched">City is required</mat-error>
         </mat-form-field>
       </p>
       <p>
           <mat-form-field style="width: 300px;">
-            <input matInput placeholder="category" formControlName="category" type="text" required>
-            <mat-error *ngIf="companyForm.get('category').hasError('required') && companyForm.get('category').touched">category is required</mat-error>
+            <input matInput placeholder="address" formControlName="address" type="text" required>
+            <mat-error *ngIf="employeeForm.get('address').hasError('required') && employeeForm.get('address').touched">Address is required</mat-error>
           </mat-form-field>
         </p>
         <p>
@@ -46,10 +46,10 @@
 </mat-card>
 <mat-card style="width: 700px;">
   <mat-card-title>
-    Companies
+    Employees
   </mat-card-title>
-  <button mat-button color="primary" (click)="getCompanys()">Load</button>
-<table mat-table [dataSource]="companies" class="mat-elevation-z8">
+  <button mat-button color="primary" (click)="getEmployees()">Load</button>
+<table mat-table [dataSource]="employees" class="mat-elevation-z8">
    
     
       <!-- Name Column -->
@@ -73,9 +73,9 @@
           <th mat-header-cell *matHeaderCellDef> City </th>
           <td mat-cell *matCellDef="let element"> {{element.city}} </td>
         </ng-container>
-        <ng-container matColumnDef="category">
-            <th mat-header-cell *matHeaderCellDef> Category </th>
-            <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Address</th>
+            <td mat-cell *matCellDef="let element"> {{element.address}} </td>
           </ng-container>
           <ng-container matColumnDef="update">
               <th mat-header-cell *matHeaderCellDef> Update </th>

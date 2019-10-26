@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
-import {Company} from '../company';
+import {Employee} from '../employee';
 import {HomeService} from '../service/home.service';
 @Component({
   selector: 'app-home',
@@ -8,11 +8,11 @@ import {HomeService} from '../service/home.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'phoneno', 'email', 'city','category','update','delete'];
-  @ViewChild('companyform') companyFormDirective;
-  companyForm:FormGroup;
-  company:Company;
-  companies:Company[];
+  displayedColumns: string[] = ['name', 'phoneno', 'email', 'city','address','update','delete'];
+  @ViewChild('employeeform') employeeFormDirective;
+  employeeForm:FormGroup;
+  employee:Employee;
+  employees:Employee[];
   constructor(private fb:FormBuilder,private hs:HomeService) {
     this.createForm();
    }
@@ -20,31 +20,31 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
   createForm(){
-    this.companyForm = this.fb.group({
+    this.employeeForm = this.fb.group({
       name:['',Validators.required],
       phoneno:['',Validators.required],
       email:['',Validators.required],
       city:['',Validators.required],
-      category:['',Validators.required]
+      address:['',Validators.required]
     })
   }
   onSubmit(){
-    this.company = this.companyForm.value;
-    console.log(this.company);
-    this.hs.registerCompany(this.company.name,this.company.phoneno,this.company.email,this.company.city,this.company.category);
-  this.companyForm.reset({
+    this.employee= this.employeeForm.value;
+    console.log(this.employee);
+    this.hs.registerCompany(this.employee.name,this.employee.phoneno,this.employee.email,this.employee.city,this.employee.address);
+  this.employeeForm.reset({
     name:'',
     phoneno:'',
     email:'',
     city:'',
-    category:''
+    address:''
   });
-  this.companyFormDirective.resetForm();
+  this.employeeFormDirective.resetForm();
   }
-  getCompanys(){
-    this.hs.getAllCompanys().subscribe((comp)=>{
-      this.companies = comp;
-      console.log(this.companies);
+  getEmployees(){
+    this.hs.getAllEmployees().subscribe((emp)=>{
+      this.employees = emp;
+      console.log(this.employees);
     })
   }
 
