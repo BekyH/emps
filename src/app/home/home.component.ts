@@ -8,9 +8,11 @@ import {HomeService} from '../service/home.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  displayedColumns: string[] = ['name', 'phoneno', 'email', 'city','category'];
   @ViewChild('companyform') companyFormDirective;
   companyForm:FormGroup;
   company:Company;
+  companies:Company[];
   constructor(private fb:FormBuilder,private hs:HomeService) {
     this.createForm();
    }
@@ -38,6 +40,12 @@ export class HomeComponent implements OnInit {
     category:''
   });
   this.companyFormDirective.resetForm();
+  }
+  getCompanys(){
+    this.hs.getAllCompanys().subscribe((comp)=>{
+      this.companies = comp;
+      console.log(this.companies);
+    })
   }
 
 }

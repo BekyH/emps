@@ -26,6 +26,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     FormsModule,
     MatIconModule,
     MatSlideToggleModule,
+    MatTableModule
     
   ],
   providers: [

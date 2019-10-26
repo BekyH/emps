@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm:FormGroup;
  email:String;
  password:String;
- User:user
+ User:user[]
  Login:loginuser
   constructor(private fb:FormBuilder,private ls:LoginService) { 
     this.createForm();
@@ -30,12 +30,10 @@ export class LoginComponent implements OnInit {
     onSubmit(){
       this.Login = this.loginForm.value;
     this.ls.login().subscribe(user=>this.User = user)
-    console.log(this.Login.email);
-   if(this.Login.email==this.User.email){
-      console.log('true');
-   }
-   else{
-     console.log('false');
-   }
+   this.User.filter((element)=>{
+     if(element.email===this.Login.email){
+      console.log("true");
+     }
+   })
     }
 }

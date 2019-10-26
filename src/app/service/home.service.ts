@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,5 +19,8 @@ uri = 'http://localhost:3000/companies';
       console.log(company);
       this.http.post(this.uri,company)
       .subscribe(res=>console.log('done'))
+  }
+  getAllCompanys():Observable<any>{
+    return this.http.get(this.uri);
   }
 }
