@@ -38,7 +38,7 @@
         </p>
         <p>
           <button mat-button type="submit" color="primary">Sumbit</button>
-          <button mat-button color="primary" (click)="getCompanys()">Load</button>
+          <!--  -->
         </p>
     </form>
   
@@ -48,6 +48,7 @@
   <mat-card-title>
     Companies
   </mat-card-title>
+  <button mat-button color="primary" (click)="getCompanys()">Load</button>
 <table mat-table [dataSource]="companies" class="mat-elevation-z8">
    
     

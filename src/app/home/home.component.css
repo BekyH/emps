@@ -2,7 +2,7 @@ table{
 width: 650px;
 }
 .mat-cell {
-    
+    padding: 2px;
     font-size: 12px;
     text-align: center;
     border-right: 1px solid #9e9e9e;
