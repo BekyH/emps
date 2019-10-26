@@ -4,4 +4,4 @@ export class Company{
     email:String;
     city:String;
     category:string;
-}
+} 

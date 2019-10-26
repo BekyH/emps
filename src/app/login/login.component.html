@@ -6,7 +6,7 @@
   <button mat-button mat-dialog-close>&times;</button>
 </div>
 </mat-toolbar>
-<form novalidate [formGroup]="loginForm">
+<form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 <p>
   <mat-form-field>
     <input matInput type="email" formControlName="email" placeholder="Email" required>
