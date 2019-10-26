@@ -37,7 +37,7 @@
           </mat-form-field>
         </p>
         <p>
-          <button mat-button type="submit" color="primary">Register</button>
+          <button mat-button type="submit" color="primary">Sumbit</button>
           <button mat-button color="primary" (click)="getCompanys()">Load</button>
         </p>
     </form>
@@ -76,6 +76,16 @@
             <th mat-header-cell *matHeaderCellDef> Category </th>
             <td mat-cell *matCellDef="let element"> {{element.category}} </td>
           </ng-container>
+          <ng-container matColumnDef="update">
+              <th mat-header-cell *matHeaderCellDef> Update </th>
+               <td mat-cell *matCellDef="let row"><button mat-button color="primary">Edit</button></td>
+               
+            </ng-container>
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> Delete </th>
+                 
+                 <td mat-cell *matCellDef="let row"><button mat-button color="primary">Delete</button></td>
+              </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>

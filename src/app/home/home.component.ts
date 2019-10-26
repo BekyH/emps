@@ -8,7 +8,7 @@ import {HomeService} from '../service/home.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'phoneno', 'email', 'city','category'];
+  displayedColumns: string[] = ['name', 'phoneno', 'email', 'city','category','update','delete'];
   @ViewChild('companyform') companyFormDirective;
   companyForm:FormGroup;
   company:Company;
